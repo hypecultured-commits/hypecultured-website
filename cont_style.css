@@ -1,0 +1,251 @@
+/* 1. MAIN CONTAINER */
+.contact-container {
+    padding: 160px 10% 100px; 
+    max-width: 1300px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+/* 2. GRID LAYOUT  */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+}
+
+/* 3. INFO */
+.contact-info h2 {
+    font-size: 2.8rem;
+    letter-spacing: 12px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.contact-info p {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 2;
+    margin-bottom: 60px;
+    max-width: 400px;
+}
+
+.info-item {
+    margin-bottom: 45px;
+}
+
+.info-item h4 {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    color: var(--gold);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.info-item p {
+    font-size: 0.9rem;
+    color: var(--black);
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+/* 4. FORM */
+.contact-form {
+    background: #fff;
+    padding: 20px 0;
+}
+
+.form-group {
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 15px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ddd; 
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-bottom: 1px solid var(--gold);
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: none;
+}
+
+/* 5. PREMIUM SUBMIT BUTTON */
+.submit-btn {
+    width: 100%;
+    padding: 22px;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    font-size: 0.75rem;
+    letter-spacing: 5px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background: var(--gold);
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.3);
+}
+
+/* 6. RESPONSIVE DESIGN (MOBILE & TABLET) */
+@media (max-width: 1024px) {
+    .contact-container {
+        padding: 120px 5% 60px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr; 
+        gap: 60px;
+    }
+
+    .contact-info h2 {
+        font-size: 2.2rem;
+        letter-spacing: 8px;
+    }
+
+    .contact-info p {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info h2 {
+        font-size: 1.8rem;
+    }
+    
+    .submit-btn {
+        padding: 18px;
+        letter-spacing: 3px;
+    }
+}
+
+/* --- BOTTOM VIDEO SECTION --- */
+.contact-video-section {
+    width: 100%;
+    height: 50vh; 
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7; 
+}
+
+.video-text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+}
+
+.video-text-overlay h3 {
+    font-size: 2rem;
+    letter-spacing: 12px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.video-text-overlay p {
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    color: var(--gold);
+    font-weight: 400;
+}
+
+
+footer {
+    margin-top: 0 !important;
+}
+
+
+@media (max-width: 768px) {
+    .contact-video-section {
+        height: 35vh;
+    }
+    .video-text-overlay h3 {
+        font-size: 1.2rem;
+        letter-spacing: 6px;
+    }
+}
+/* --- SEARCH BAR STYLES --- */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 15px; 
+}
+
+#search-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--gold);
+    color: var(--white);
+    padding: 5px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    width: 0; 
+    opacity: 0;
+    transition: width 0.4s ease, opacity 0.4s ease;
+    outline: none;
+}
+
+.search-active #search-input {
+    width: 150px; 
+    opacity: 1;
+}
+
+#search-btn i {
+    color: var(--white);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#search-btn:hover i {
+    color: var(--gold);
+}

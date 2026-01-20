@@ -1,0 +1,301 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Index | HYPE CULTURED</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="index_style.css">
+
+    <style>
+        /* --- SITEMAP SPECIFIC STYLES --- */
+        body {
+            background-color: #050505; 
+            color: #fff;
+        }
+
+        .sitemap-container {
+            padding: 180px 10% 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 80vh;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-title h2 {
+            font-size: 2.5rem;
+            letter-spacing: 10px;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            color: var(--gold);
+        }
+
+        /* --- TABLE DESIGN --- */
+        .directory-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #0f0f0f;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #222;
+        }
+
+        .directory-table th {
+            background: var(--navy);
+            color: var(--white);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            padding: 20px;
+            text-align: left;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .directory-table td {
+            padding: 20px;
+            border-bottom: 1px solid #222;
+            transition: 0.3s;
+        }
+
+        .directory-table tr:hover td {
+            background: rgba(197, 160, 89, 0.05); 
+        }
+
+        .directory-table tr:hover td a {
+            color: var(--gold);
+            padding-left: 10px; 
+        }
+
+        /* Column Styling */
+        .col-category {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: #666;
+            font-weight: 700;
+            width: 25%;
+            text-transform: uppercase;
+        }
+
+        .col-link a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: block; 
+            transition: 0.3s;
+        }
+
+        .col-desc {
+            font-size: 0.7rem;
+            color: #888;
+            letter-spacing: 1px;
+            width: 40%;
+        }
+
+        .status-dot {
+            height: 8px;
+            width: 8px;
+            background-color: #00ff00; 
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+            box-shadow: 0 0 5px #00ff00;
+        }
+
+        @media (max-width: 768px) {
+            .directory-table thead { display: none; } 
+            .directory-table, .directory-table tbody, .directory-table tr, .directory-table td {
+                display: block;
+                width: 100%;
+            }
+            .directory-table tr { margin-bottom: 20px; border: 1px solid #333; }
+            .directory-table td { text-align: right; padding: 15px; border-bottom: 1px solid #222; }
+            .directory-table td::before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                color: var(--gold);
+                font-size: 0.7rem;
+                letter-spacing: 2px;
+            }
+            .col-desc { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand">
+            <h1 onclick="location.href='index.html'">HYPE CULTURED&reg;</h1>
+            <small>GOES BEYOND</small>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="collection.html">COLLECTION</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="SEARCH...">
+            <div id="search-btn" class="icon-wrapper"><i class="fa-solid fa-magnifying-glass"></i></div>
+        </div>
+
+        <div class="nav-icons">
+            <div id="cart-btn" class="icon-wrapper">BAG <span id="cart-count">0</span></div>
+            <div id="login-trigger" class="icon-wrapper">ACCOUNT 👤</div>
+        </div>
+    </nav>
+
+    <main class="sitemap-container">
+        
+        <div class="page-title">
+            <h2>SITE INDEX</h2>
+            <p>// SYSTEM DIRECTORY & NAVIGATION DATABASE</p>
+        </div>
+
+        <table class="directory-table">
+            <thead>
+                <tr>
+                    <th>SECTION</th>
+                    <th>PAGE DESTINATION</th>
+                    <th>DESCRIPTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-category" data-label="SECTION">MAIN INTERFACE</td>
+                    <td class="col-link" data-label="PAGE"><a href="index.html"><span class="status-dot"></span>HOME PAGE</a></td>
+                    <td class="col-desc" data-label="DESC">Main landing page with hero slider and featured drops.</td>
+                </tr>
+                <tr>
+                    <td class="col-category" data-label="SECTION">MAIN INTERFACE</td>
+                    <td class="col-link" data-label="PAGE"><a href="about.html"><span class="status-dot"></span>OUR STORY / ABOUT</a></td>
+                    <td class="col-desc" data-label="DESC">Brand history, team members, and philosophy.</td>
+                </tr>
+                <tr>
+                    <td class="col-category" data-label="SECTION">COMMERCE</td>
+                    <td class="col-link" data-label="PAGE"><a href="collection.html"><span class="status-dot"></span>FULL COLLECTION</a></td>
+                    <td class="col-desc" data-label="DESC">Browse all products, filter by category.</td>
+                </tr>
+                <tr>
+                    <td class="col-category" data-label="SECTION">COMMERCE</td>
+                    <td class="col-link" data-label="PAGE"><a href="cart.html"><span class="status-dot"></span>SHOPPING BAG</a></td>
+                    <td class="col-desc" data-label="DESC">View selected items and proceed to checkout.</td>
+                </tr>
+                
+                <tr>
+                    <td class="col-category" data-label="SECTION">PRODUCT CATEGORY</td>
+                    <td class="col-link" data-label="PAGE"><a href="collection.html#new-arrivals">↳ NEW ARRIVALS</a></td>
+                    <td class="col-desc" data-label="DESC">Latest seasonal drops and exclusive items.</td>
+                </tr>
+                <tr>
+                    <td class="col-category" data-label="SECTION">PRODUCT CATEGORY</td>
+                    <td class="col-link" data-label="PAGE"><a href="collection.html#best-sellers">↳ BEST SELLERS</a></td>
+                    <td class="col-desc" data-label="DESC">Most popular items voted by the community.</td>
+                </tr>
+                <tr>
+                    <td class="col-category" data-label="SECTION">PRODUCT CATEGORY</td>
+                    <td class="col-link" data-label="PAGE"><a href="collection.html#accessories">↳ ACCESSORIES</a></td>
+                    <td class="col-desc" data-label="DESC">Caps, bags, and urban essentials.</td>
+                </tr>
+
+                <tr>
+                    <td class="col-category" data-label="SECTION">SUPPORT & HELP</td>
+                    <td class="col-link" data-label="PAGE"><a href="contact.html"><span class="status-dot"></span>CONTACT US</a></td>
+                    <td class="col-desc" data-label="DESC">Customer service form, location map, and details.</td>
+                </tr>
+                <tr>
+                    <td class="col-category" data-label="SECTION">SYSTEM</td>
+                    <td class="col-link" data-label="PAGE"><a href="#" onclick="alert('Admin Access Only')">ADMIN LOGIN</a></td>
+                    <td class="col-desc" data-label="DESC">Restricted access for staff only.</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>HYPE CULTURED</h2>
+                <small>GOES BEYOND</small>
+                <p style="font-size: 0.7rem; opacity: 0.6; line-height: 1.6; margin-top: 15px;">
+                    A collective movement focused on premium aesthetics and the evolution of urban identity.
+                </p>
+            </div>
+    
+            <div class="footer-column">
+                <h4>SUPPORT</h4>
+                <ul>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                    <li><a href="collection.html">SHOP NOW</a></li>
+                    <li><a href="sitemap.html" style="color: var(--gold);">SITE MAP</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="about.html">OUR STORY</a></li>
+                    <li><a href="https://hype.my" target="_blank">HEAD QUARTERS</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-column">
+                <h4>FOLLOW</h4>
+                <div class="social-icons">
+                    <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+                <span>&copy; <span id="copyright-date">2026</span> HYPE CULTURED STUDIO. ALL RIGHTS RESERVED.</span>
+                <span style="font-size: 0.6rem; color: #888;">LAST UPDATE: <span id="last-update">...</span></span>
+            </div>
+            <span style="color: #c5a059; font-weight: 700;">GOES BEYOND.</span>
+        </div>
+    </footer>
+
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-tabs">
+                <button class="tab-btn active">LOGIN</button>
+            </div>
+            <form class="auth-form">
+                <input type="email" placeholder="EMAIL ADDRESS">
+                <input type="password" placeholder="PASSWORD">
+                <button>SIGN IN</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 style="text-align:center; margin-bottom:30px;">YOUR BAG</h3>
+            <div id="cart-items-preview"></div> 
+        </div>
+    </div>
+
+    <div class="access-tool" title="Accessibility Mode">
+        <button id="access-toggle"><i class="fa-solid fa-universal-access"></i></button>
+    </div>
+
+    <script src="main_script.js"></script>
+</body>
+</html>

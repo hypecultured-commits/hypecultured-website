@@ -1,0 +1,819 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection | HYPE CULTURED</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index_style.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="cll_style.css?v=2">
+    <style>
+        /* --- GLOBAL & SMOOTH SCROLL --- */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #fff5ee;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(197, 160, 89, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 31, 63, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* --- NAVIGATION BAR --- */
+        nav {
+            background: #000000 !important;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        nav .brand h1, 
+        nav .nav-links a, 
+        nav .nav-icons .icon-wrapper {
+            color: #ffffff !important;
+            text-decoration: none;
+        }
+        nav .brand small {
+            color: #c5a059 !important;
+            display: block;
+            letter-spacing: 2px;
+            font-size: 0.6rem;
+        }
+        .nav-links a {
+            margin-left: 25px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* --- NEW: COLLECTION ANCHOR NAV --- */
+        .collection-nav-wrapper {
+            position: fixed;
+            top:75px; 
+            width: 100%;
+            background: rgba(141, 95, 53, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .col-link {
+            text-decoration: none;
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 5px 15px;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .col-link:hover {
+            color: #c5a059;
+            border-bottom: 1px solid #c5a059;
+        }
+
+/* --- COLLECTION GRID (FULL CENTER FIX) --- */
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 40px 30px;
+    
+
+    justify-content: center; 
+
+    justify-items: center; 
+    
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: #cfa779;
+    padding: 20px;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.02);
+    
+    width: 260px; 
+}
+
+.image-container {
+    width: 100%;
+    height: 240px; 
+    overflow: hidden;
+    background: #543c1a;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-card h4 {
+    font-size: 1.0rem;
+    color:#36454f;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.product-card p {
+    font-size: 1rem;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+        .price {
+            font-size: 0.9rem;
+            color: #201807;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .qty-selector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            width: 110px;
+            padding: 6px;
+        }
+
+        .qty-selector button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #888;
+            font-size: 1.2rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 15px;
+            background: #000;
+            color: white;
+            border: none;
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .add-to-cart:hover {
+            background: #c5a059;
+        }
+
+        /* --- MODAL STYLES --- */
+        
+        .modal-content-auth {
+            background: #fff; width: 400px; padding: 50px; 
+            position: absolute; top: 50%; left: 50%; 
+            transform: translate(-50%, -50%); border-radius: 4px;
+        }
+        
+        .tab-btn {
+            background: none; border: none; font-weight: 800; 
+            letter-spacing: 2px; cursor: pointer; font-size: 0.8rem; 
+            color: #ccc; padding-bottom: 5px;
+        }
+        .tab-btn.active {
+            color: #c5a059; border-bottom: 2px solid #c5a059;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 80px 5% 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-brand h2 { letter-spacing: 4px; }
+        .footer-column h4 { color: #c5a059; margin-bottom: 20px; font-size: 0.8rem; }
+        .footer-column ul { list-style: none; padding: 0; }
+        .footer-column ul li { margin-bottom: 10px; }
+        .footer-column a { color: #fff; text-decoration: none; font-size: 0.75rem; opacity: 0.7; }
+        
+        .footer-bottom {
+            margin-top: 50px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .collection-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 650px) {
+            .collection-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .modal-content-auth { width: 90%; padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand">
+            <h1 onclick="location.href='index.html'" style="cursor:pointer">HYPE CULTURED&reg;</h1>
+            <small>GOES BEYOND</small>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <div class="dropdown">
+        <a href="collection.html" class="active">COLLECTION</a>
+        <div class="dropdown-content">
+            <a href="collection.html#new-arrivals">NEW ARRIVALS</a>
+            <a href="collection.html#best-sellers">BEST SELLERS</a>
+            <a href="collection.html#tops">TOPS</a>
+             <a href="collection.html#bottoms">BOTTOMS</a>
+            <a href="collection.html#accessories">ACCESSORIES</a>
+        </div>
+    </div>
+            <a href="contact.html">CONTACT</a>
+        </div>
+        <div class="search-container">
+    <input type="text" id="search-input" placeholder="SEARCH...">
+    <div id="search-btn" class="icon-wrapper"><i class="fa-solid fa-magnifying-glass"></i></div>
+</div>
+       <div class="nav-icons">
+    <div id="cart-btn" class="icon-wrapper">BAG <span id="cart-count">0</span></div>
+    <div id="login-trigger" class="icon-wrapper">ACCOUNT 👤</div>
+</div>
+    </nav>
+
+    <div class="collection-nav-wrapper">
+        <a href="#new-arrivals" >NEW ARRIVALS</a>
+        <a href="#best-sellers" >BEST SELLERS</a>
+        <a href="#tops" >TOPS</a>
+        <a href="#bottoms" >BOTTOMS</a>
+        <a href="#accessories" >ACCESSORIES</a>
+    </div>
+
+    <main class="collection-container">
+        
+        <section id="new-arrivals" class="collection-section">
+            <h2>NEW ARRIVALS</h2>
+            <div class="collection-grid">
+                <div class="product-card" data-id="na-01">
+                    <div class="image-container"><img src="newarrival1.jpg"></div>
+                    <h4>PULLOVER HOODIE</h4>
+                    <p class="price">RM 169</p>
+                  <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+
+<button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-card" data-id="na-02">
+                    <div class="image-container"><img src="newarrival2.jpg"></div>
+                    <h4>CABLEKNIT CREWNECK</h4>
+                    <p class="price">RM 149</p>
+                    <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-card" data-id="na-03">
+                    <div class="image-container"><img src="newarrival3.jpg"></div>
+                    <h4>LOGO H CAP</h4>
+                    <p class="price">RM 89</p>
+                   <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-card" data-id="na-04">
+                    <div class="image-container"><img src="newarrival4.jpg"></div>
+                    <h4>FORTUNE LA SHIRT </h4>
+                    <p class="price">RM 129</p>
+                   <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="best-sellers" class="collection-section">
+            <h2>BEST SELLERS</h2>
+            <div class="collection-grid">
+                <div class="product-card" data-id="bs-01">
+                    <div class="image-container"><img src="bestseller1.jpg"></div>
+                    <h4>RUGBY SHIRT (SOLD OUT)</h4>
+                    <p class="price">RM 115</p>
+                   <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-card" data-id="bs-02">
+                    <div class="image-container"><img src="bestseller2.jpg"></div>
+                    <h4>VARSITY JACKET</h4>
+                    <p class="price">RM 220</p>
+                   <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-card" data-id="bs-03">
+                    <div class="image-container"><img src="bestseller3.jpg"></div>
+                    <h4>INFINITY BUZZ JACKET</h4>
+                    <p class="price">RM 189</p>
+                   <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                 <div class="product-card" data-id="bs-04">
+                    <div class="image-container"><img src="bestseller4.jpg"></div>
+                    <h4>RUGBY SHIRT </h4>
+                    <p class="price">RM 115</p>
+                   <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="tops" class="collection-section">
+            <h2>TOPS</h2>
+            <div class="collection-grid">
+                <div class="product-card" data-id="tp-01">
+                    <div class="image-container"><img src="tops1.jpg"></div>
+                    <h4>SIGNATURE COLLEGIATE OXFORD SHIRT</h4>
+                    <p class="price">RM 129</p>
+                   <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-card" data-id="tp-02">
+                    <div class="image-container"><img src="tops2.jpg"></div>
+                    <h4>UNIVERSITY LETTERMAN JACKET</h4>
+                    <p class="price">RM 179</p>
+                   <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-card" data-id="tp-03">
+                    <div class="image-container"><img src="tops3.jpg"></div>
+                    <h4>DETROIT JACKET</h4>
+                    <p class="price">RM 189</p>
+                   <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-card" data-id="tp-04">
+                    <div class="image-container"><img src="tops4.jpg"></div>
+                    <h4>INTIAL D SHIRTS</h4>
+                    <p class="price">RM 180</p>
+                    <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="bottoms" class="collection-section">
+            <h2>BOTTOMS</h2>
+            <div class="collection-grid">
+                <div class="product-card" data-id="bt-01">
+                    <div class="image-container"><img src="bottoms1.jpg"></div>
+                    <h4>SWEAT PANTS</h4>
+                    <p class="price">RM 149</p>
+                   <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-card" data-id="bt-02">
+                    <div class="image-container"><img src="bottoms2.jpg"></div>
+                    <h4>SWEAT SHORT</h4>
+                    <p class="price">RM 129</p>
+                  <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-card" data-id="bt-03">
+                    <div class="image-container"><img src="bottoms3.jpg"></div>
+                    <h4>CARGO PANTS</h4>
+                    <p class="price">RM 159</p>
+                   <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-card" data-id="bt-04">
+                    <div class="image-container"><img src="bottoms3.jpg"></div>
+                    <h4>INTIAL D DENIM PANT</h4>
+                    <p class="price">RM 159</p>
+                    <div class="action-row">
+    <select class="size-select">
+        <option value="" disabled selected>SIZE</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+    </select>
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="accessories" class="collection-section">
+            <h2>ACCESSORIES</h2>
+            <div class="collection-grid">
+                <div class="product-card" data-id="ac-01">
+                    <div class="image-container"><img src="accessories1.jpg"></div>
+                    <h4>LOGO H CAP </h4>
+                    <p class="price">RM 89</p>
+                   <div class="action-row">
+
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-card" data-id="ac-02">
+                    <div class="image-container"><img src="accessories2.jpg"></div>
+                    <h4>FOREST COMO SIDE BAG</h4>
+                    <p class="price">RM 55</p>
+                   <div class="action-row">
+    
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                <div class="product-card" data-id="ac-03">
+                    <div class="image-container"><img src="accessories3.jpg"></div>
+                    <h4>RETRACTABLE KEYCHAIN</h4>
+                    <p class="price">RM 35</p>
+                    <div class="action-row">
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+                 <div class="product-card" data-id="ac-04">
+                    <div class="image-container"><img src="accessories4.jpg"></div>
+                    <h4>SIGNATURE PANEL CAP</h4>
+                    <p class="price">RM 79</p>
+                   <div class="action-row">
+
+
+    <div class="qty-selector">
+        <button class="minus">-</button>
+        <span class="qty-number">0</span>
+        <button class="plus">+</button>
+    </div>
+</div>
+                    <button class="add-to-cart">ADD TO BAG</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+<div id="cart-modal" class="modal">
+    <div class="modal-content"> <span class="close-modal">&times;</span>
+        <h3 style="text-align:center; letter-spacing:4px; font-size:1rem; margin-bottom:30px; border-bottom:1px solid #eee; padding-bottom:15px; text-transform:uppercase;">
+            YOUR BAG
+        </h3>
+        <div id="cart-items-preview"></div> 
+    </div>
+</div>
+
+    <div id="auth-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="auth-tabs">
+            <button class="tab-btn active" onclick="switchAuth('login')">LOGIN</button>
+            <button class="tab-btn" onclick="switchAuth('signup')">JOIN</button>
+        </div>
+        <form id="login-form" class="auth-form">
+            <input type="email" placeholder="EMAIL ADDRESS" required>
+            <input type="password" placeholder="PASSWORD" required>
+            <button type="submit">SIGN IN</button>
+        </form>
+        <form id="signup-form" class="auth-form" style="display:none;">
+            <input type="text" placeholder="FULL NAME" required>
+            <input type="email" placeholder="EMAIL ADDRESS" required>
+            <input type="password" placeholder="PASSWORD" required>
+            <button type="submit">CREATE ACCOUNT</button>
+        </form>
+    </div>
+</div>
+
+   <footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h2>HYPE CULTURED</h2>
+            <small>GOES BEYOND</small>
+            <p style="font-size: 0.7rem; opacity: 0.6; line-height: 1.6; margin-top: 15px;">
+                A collective movement focused on premium aesthetics and the evolution of urban identity.
+            </p>
+        </div>
+
+         <div class="footer-column">
+    <h4>SUPPORT</h4>
+    <ul>
+        <li><a href="contact.html">CONTACT US</a></li>
+        <li><a href="collection.html">SHOP NOW</a></li>
+        <li><a href="#">RETURNS</a></li>
+        <li style="margin-top: 10px;">
+            <a href="sitemap.html" style="color: #c5a059; font-weight: 700;">⭐ SITE MAP</a>
+        </li>
+    </ul>
+</div>
+
+        <div class="footer-column">
+            <h4>COMPANY</h4>
+            <ul>
+                <li><a href="about.html">OUR STORY</a></li>
+                <li><a href="https://hype.my" target="_blank">HEAD QUARTERS</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>FOLLOW</h4>
+            <div class="social-icons">
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <span>&copy; <span id="copyright-date">2026</span> HYPE CULTURED STUDIO. ALL RIGHTS RESERVED.</span>
+            <span style="font-size: 0.6rem; color: #888;">LAST UPDATE: <span id="last-update">...</span></span>
+        </div>
+        <span style="color: #c5a059; font-weight: 700;">GOES BEYOND.</span>
+    </div>
+</footer>
+<div id="image-zoom-modal" class="zoom-modal">
+    <span class="close-zoom">&times;</span>
+    <img class="zoom-modal-content" id="img-to-zoom">
+</div>
+
+   <audio id="bg-music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<button id="music-toggle" class="music-btn" title="Mute/Unmute">
+    <i class="fa-solid fa-volume-high"></i>
+</button>
+
+<script src="main_script.js"></script>
+</body>
+</html>

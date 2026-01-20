@@ -1,0 +1,262 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | HYPE CULTURED</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="cont_style.css">
+    <style>
+    
+        
+        nav {
+            background: #000000 !important;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 15px 5% !important;
+        }
+        nav .brand h1, 
+        nav .nav-links a, 
+        nav .nav-icons .icon-wrapper {
+            color: #ffffff !important;
+        }
+        nav .nav-links a:hover, 
+        nav .nav-links a.active {
+            color: var(--gold) !important;
+        }
+        #cart-count {
+            background: var(--gold) !important;
+            color: #000 !important;
+        }
+
+        
+        .contact-container {
+            padding-top: 180px; 
+        }
+
+        .contact-info h2 {
+            font-size: 3.5rem;
+            line-height: 1;
+            margin-bottom: 30px;
+            letter-spacing: -1px; 
+        }
+
+        .form-group label {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+            color: #888;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            background: #fbfbfb;
+            border: 1px solid #eee !important;
+            padding: 15px !important;
+            border-radius: 0;
+            width: 100%;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: var(--gold) !important;
+            background: #fff;
+        }
+
+        .info-item h4 {
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .info-item p {
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .submit-btn {
+            letter-spacing: 6px;
+            font-size: 0.7rem;
+            transition: 0.4s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand">
+            <h1 onclick="location.href='index.html'">HYPE CULTURED&reg;</h1>
+            <small>GOES BEYOND</small>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="collection.html">COLLECTION</a>
+            <a href="contact.html" class="active">CONTACT</a>
+        </div>
+        <div class="search-container">
+    <input type="text" id="search-input" placeholder="SEARCH...">
+    <div id="search-btn" class="icon-wrapper"><i class="fa-solid fa-magnifying-glass"></i></div>
+</div>
+        <div class="nav-icons">
+            <div id="cart-btn" class="icon-wrapper">BAG <span id="cart-count">0</span></div>
+            <div id="login-trigger" class="icon-wrapper">ACCOUNT 👤</div>
+        </div>
+    </nav>
+
+    <main class="contact-container">
+        <div class="contact-grid">
+            
+            <div class="contact-info">
+                <h2>GET IN <br> TOUCH</h2>
+                <p>Have a question about an order or just want to talk about the culture? We are here to help you go beyond.</p>
+                
+                <div class="info-item">
+                    <h4>STUDIO LOCATION</h4>
+                    <p><strong>HYPE CULTURED HQ</strong></p>
+            <p>F1-63, First Floor, Sunway Pyramid Shopping Mall</p>
+            <p> 3, Jalan PJS 11/15, Bandar Sunway, 46150</p>
+            <p></p>Petaling Jaya, Selangor</p>
+                </div>
+
+                <div class="info-item">
+                    <h4>EMAIL ENQUIRIES</h4>
+                    <p>hype_culture@gmail.com</p>
+                </div>
+
+                <div class="info-item">
+                    <h4>WHATSAPP CONCIERGE</h4>
+                    <p>+60 11-2384 7394</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="hype-contact-form">
+                    <div class="form-group">
+                        <label>FULL NAME</label>
+                        <input type="text" placeholder="ENTER YOUR NAME" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>EMAIL ADDRESS</label>
+                        <input type="email" placeholder="ENTER YOUR EMAIL" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>SUBJECT</label>
+                        <input type="text" placeholder="ORDER # / GENERAL" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>MESSAGE</label>
+                        <textarea placeholder="HOW CAN WE HELP YOU?"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">SEND MESSAGE</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <section class="contact-video-section">
+    <div class="video-container">
+        <video autoplay muted loop playsinline>
+            <source src="video_contact.mp4" type="video/mp4">
+        </video>
+        <div class="video-text-overlay">
+            <h3>BEYOND FASHION</h3>
+            <p>ESTABLISHED 2024</p>
+        </div>
+    </div>
+</section>
+
+  <footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h2>HYPE CULTURED</h2>
+            <small>GOES BEYOND</small>
+            <p style="font-size: 0.7rem; opacity: 0.6; line-height: 1.6; margin-top: 15px;">
+                A collective movement focused on premium aesthetics and the evolution of urban identity.
+            </p>
+        </div>
+
+         <div class="footer-column">
+    <h4>SUPPORT</h4>
+    <ul>
+        <li><a href="contact.html">CONTACT US</a></li>
+        <li><a href="collection.html">SHOP NOW</a></li>
+        <li><a href="#">RETURNS</a></li>
+        <li style="margin-top: 10px;">
+            <a href="sitemap.html" style="color: #c5a059; font-weight: 700;">⭐ SITE MAP</a>
+        </li>
+    </ul>
+</div>
+
+        <div class="footer-column">
+            <h4>COMPANY</h4>
+            <ul>
+                <li><a href="about.html">OUR STORY</a></li>
+                <li><a href="https://hype.my" target="_blank">HEAD QUARTERS</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>FOLLOW</h4>
+            <div class="social-icons">
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <span>&copy; <span id="copyright-date">2026</span> HYPE CULTURED STUDIO. ALL RIGHTS RESERVED.</span>
+            <span style="font-size: 0.6rem; color: #888;">LAST UPDATE: <span id="last-update">...</span></span>
+        </div>
+        <span style="color: #c5a059; font-weight: 700;">GOES BEYOND.</span>
+    </div>
+</footer>
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="switchAuth('login')">LOGIN</button>
+                <button class="tab-btn" onclick="switchAuth('signup')">JOIN</button>
+            </div>
+            <form id="login-form" class="auth-form">
+                <input type="email" placeholder="EMAIL ADDRESS" required>
+                <input type="password" placeholder="PASSWORD" required>
+                <button type="submit">SIGN IN</button>
+            </form>
+            <form id="signup-form" class="auth-form" style="display: none;">
+                <input type="text" placeholder="FULL NAME" required>
+                <input type="email" placeholder="EMAIL ADDRESS" required>
+                <input type="password" placeholder="CREATE PASSWORD" required>
+                <button type="submit">CREATE ACCOUNT</button>
+            </form>
+        </div>
+    </div>
+
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 style="text-align:center; letter-spacing:4px; font-size:1rem; margin-bottom:30px; border-bottom:1px solid #eee; padding-bottom:15px; text-transform:uppercase;">
+            YOUR BAG
+        </h3>
+        
+        <div id="cart-items-preview"></div> 
+    </div>
+</div>
+
+    <script src="main_script.js"></script>
+</body>
+</html>
